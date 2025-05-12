@@ -1,22 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
- import HomePage from './pages/HomePage';
-import PostPage from './pages/PostPage'; 
-import Sidebar from './components/Sidebar';
+import MainLayout from './layouts/MainLayout'
+import HomePage from './Pages/HomePage.jsx'
+import PostPage from './Pages/PostPage.jsx'
 
 function App() {
   return (
     <Router>
-      <div className="flex">
-        <Sidebar />
-        <main className="flex-1 p-4">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/post/:id" element={<PostPage />} />
-          </Routes>
-        </main> 
-      </div>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/post/:id" element={<PostPage />} />
+        </Route>
+      </Routes>
     </Router>
-  );
+  )
 }
 
 export default App

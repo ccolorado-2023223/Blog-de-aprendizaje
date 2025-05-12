@@ -1,4 +1,10 @@
-/* :root {
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+} 
+ 
+  :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -66,4 +72,63 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
- */
+ 
+aside {
+  background-color: #e2e8f0;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+aside h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+aside ul li button {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+aside ul li button:hover {
+  background-color: #cbd5e1;
+}
+
+main h1, main h2 {
+  color: #1a202c;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+form input, form textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #2563eb;
+}

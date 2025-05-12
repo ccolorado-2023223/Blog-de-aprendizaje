@@ -1,25 +1,42 @@
-//import { usePostStore } from '../store/usePostStore.jsx';
+import useCourseFilter from '../store/useCourseFilter'
+import { useNavigate } from 'react-router-dom'
 
-const courses = ['Taller', 'Practica Supervisada', 'Tecnología'];
+const courses = ['Taller', 'Práctica Supervisada', 'Tecnología']
 
-export default function Sidebar() {
- // const setCourseFilter = usePostStore(state => state.setCourseFilter);
+function Sidebar() {
+  const setCourseFilter = useCourseFilter((state) => state.setCourseFilter)
+  const navigate = useNavigate()
+
+  const handleFilter = (filter) => {
+    setCourseFilter(filter)
+    navigate('/')
+  };
 
   return (
-    <aside className="w-64 bg-gray-200 p-4 min-h-screen">
-      <h2 className="text-xl font-bold mb-4">Cursos</h2>
-      <ul>
-        {courses.map(course => (
+    <aside className="p-4 bg-gray-100 rounded shadow sticky top-4 h-fit">
+      <h2 className="text-lg font-semibold mb-2">Filtrar por área</h2>
+      <ul className="space-y-2">
+        {courses.map((course) => (
           <li key={course}>
             <button
-              onClick={() => setCourseFilter(course)}
-              className="w-full text-left p-2 hover:bg-gray-300"
+              onClick={() => handleFilter(course)}
+              className="text-blue-600 hover:underline"
             >
               {course}
             </button>
           </li>
         ))}
+        <li>
+          <button
+            onClick={() => handleFilter(null)}
+            className="text-blue-600 hover:underline"
+          >
+            Ver todas
+          </button>
+        </li>
       </ul>
     </aside>
   )
 }
+
+export default Sidebar
